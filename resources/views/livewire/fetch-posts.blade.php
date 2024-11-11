@@ -87,35 +87,39 @@
                     </div>
 
                     <div class="comments text-muted">
-                        @foreach ($post->comments as $comment)
-                            <div class="text-white" style="margin: 0; border-radius: 0;">
-                                <div class="panel-body row">
-                                    <div class="col-sm-2 profile-photo">
-                                        <img src="{{ $comment->user->avatar }}">
-                                    </div>
-                                    <div class="col-sm-10">
-                                        <span>
-                                            <p>{{ $comment->user->name }}: &nbsp; {{ $comment->comment }}</p>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                        @if (Auth::check())
-                            <div class="" style="margin: 0; border-radius: 0;">
-                                <div class="panel-body">
-                                    <form action="{{ url('/comment') }}" method="POST"
-                                        class="d-flex align-items-center">
-                                        {{ csrf_field() }}
-                                        <input type="hidden" name="post_id" value="{{ $post->id }}">
-                                        <input type="text" name="comment" placeholder="Enter your Comment"
-                                            class="form-control bg-transparent text-light">
-                                        <input type="submit" value="Comment" class="btn btn-primary" style="">
-                                    </form>
-                                </div>
-                            </div>
+    @foreach ($post->comments as $comment)
+        <div class="text-white" id="comment-{{ $comment->id }}" style="margin: 0; border-radius: 0;">
+            <div class="panel-body row">
+                <div class="col-sm-2 profile-photo">
+                    <img src="{{ $comment->user->avatar }}">
+                </div>
+                <div class="col-sm-10">
+                    <span>
+                        <p>{{ $comment->user->name }}: &nbsp; {{ $comment->comment }}</p>
+                        @if($comment->user_id === Auth::id())
+                            <button class="delete-comment-btn" data-comment-id="{{ $comment->id }}">Delete</button>
                         @endif
-                    </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+    @if (Auth::check())
+        <div class="" style="margin: 0; border-radius: 0;">
+            <div class="panel-body">
+                <form class="comment-form d-flex align-items-center">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="post_id" value="{{ $post->id }}">
+                    <input type="text" name="comment" placeholder="Enter your Comment" class="form-control bg-transparent text-light" required>
+                    <button type="submit" class="btn btn-primary">Comment</button>
+                </form>
+            </div>
+        </div>
+    @endif
+</div>
+
+
                 </div>
             @endif
         @endif

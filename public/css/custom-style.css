@@ -1,0 +1,26 @@
+
+    /* Thêm đoạn CSS này ở đầu template blade của bạn hoặc trong một file CSS riêng */
+    .panel1 {
+        background-color: #ca8926; /* Màu nền cho khung */
+        border-color: #337ab7;    /* Màu viền */
+    }
+
+    .panel-heading {
+        background-color: #337ab7; /* Màu nền cho tiêu đề */
+        color: white;              /* Màu chữ cho tiêu đề */
+    }
+
+    .btn-info {
+        background-color: #5bc0de; /* Màu nền cho nút */
+        border-color: #46b8da;     /* Màu viền cho nút */
+    }
+
+    .btn-info:hover {
+        background-color: #31b0d5; /* Màu nền khi rê chuột vào nút */
+        border-color: #269abc;     /* Màu viền khi rê chuột vào nút */
+    }
+
+    .text-alert {
+        color: #d9534f;            /* Màu chữ thông báo */
+    }
+

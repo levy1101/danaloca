@@ -271,3 +271,26 @@ function comment(id) {
     cmt[id-1].style.display = "block";
 
 }
+function addLocation() {
+    // Thực hiện yêu cầu AJAX hoặc thay đổi nội dung trang tại đây
+    
+    // Ví dụ: Thay đổi nội dung trang không cần tải lại
+    const mainContainer = document.querySelector('main');
+    mainContainer.innerHTML = `
+        <div class="container">
+            <h2>Add Your Location</h2>
+            <form>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" class="form-control">
+                <button type="button" onclick="submitLocation()" class="btn btn-primary mt-2">Submit</button>
+            </form>
+        </div>
+    `;
+}
+
+function submitLocation() {
+    const location = document.getElementById('location').value;
+    alert(`Location "${location}" added!`);
+    // Hoặc thêm code để lưu thông tin location vào database qua AJAX.
+}
+

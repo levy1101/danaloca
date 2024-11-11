@@ -173,7 +173,7 @@
                                 
                                 <p>liked by <b>Ernest Achiever</b> and <b>2,323 other</b></p>
                             </div>
-                            <div class="comments text-muted">
+                            <!-- <div class="comments text-muted">
                                 @foreach ($post->comments as $comment)
                                     <div class="" style="margin: 0; border-radius: 0;">
                                         <div class="panel-body">
@@ -189,7 +189,23 @@
                                         </div>
                                     </div>
                                 @endforeach
-                            </div>
+                            </div> -->
+                            <div class="comments text-muted">
+    @foreach ($post->comments as $comment)
+        <div style="margin: 0; border-radius: 0;">
+            <div class="panel-body d-flex align-items-center">
+                <div class="profile-photo me-2">
+                    <img src="{{ $comment->user->avatar }}" alt="{{ $comment->user->name }}'s avatar">
+                </div>
+                <div class="comment-content">
+                    <strong>{{ $comment->user->name }}:</strong>
+                    {{ $comment->comment }}
+                </div>
+            </div>
+        </div>
+    @endforeach
+</div>
+
                             @if (Auth::check())
                                 <div class="" style="margin: 0; border-radius: 0;">
                                     <div class="panel-body">
