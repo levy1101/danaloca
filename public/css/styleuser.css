@@ -503,7 +503,7 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 .middle .comments{
-    display: none;
+    display: block;
 }
 
 .middle .comments .profile-photo{
@@ -741,4 +741,28 @@ input[type="file"]::-webkit-file-upload-button {
 }
 .auth .container .card .card-header {
     background: var(--color-white);
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 25px;
+}
+
+.dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
 }

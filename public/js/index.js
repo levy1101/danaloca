@@ -260,14 +260,28 @@ createModal.addEventListener("click", closeCreateModal);
 create.addEventListener("click", openCreateModal);
 
 function comment(id) {
-    // document.getElementsByClassName("comments").styles.display = "block";
     var cmt = document.getElementsByClassName("comments");
-    // console.log(id);
-    // console.log(cmt[id])
+    var commentSection = cmt[id - 1];
 
-    // for (var i = 0; i < cmt.length; i += 1) {
-    //     cmt[i].style.display = "block";
-    // }
-    cmt[id-1].style.display = "block";
-
+    if (commentSection.style.display === "block") {
+        commentSection.style.display = "none";
+    } else {
+        commentSection.style.display = "block";
+    }
 }
+function togglePostDropdown() {
+    document.getElementById("postDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function (event) {
+    if (!event.target.matches(".dropbtn")) {
+        var dropdowns = document.getElementsByClassName("dropdown-menu");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains("show")) {
+                openDropdown.classList.remove("show");
+            }
+        }
+    }
+};

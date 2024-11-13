@@ -32,9 +32,14 @@
                                 </small>
                             </div>
                         </div>
-                        <span class="edit">
-                            <i class="bi bi-three-dots me-0"></i>
+                        <span class="edit dropdown">
+                            <i class="bi bi-three-dots me-0 dropbtn" onclick="togglePostDropdown()"></i>
+                            <div id="postDropdown" class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Edit Post</a>
+                                <a class="dropdown-item" href="#">Delete Post</a>
+                            </div>
                         </span>
+                        
                     </div>
                     <div class="caption mt-3">
                         <span class="content">
@@ -69,14 +74,14 @@
                                 $likeCount = $post->likes->count();
                                 $limit = 3;
                             @endphp
-
+                    
                             @foreach ($post->likes->take($limit) as $like)
                                 <span><img src="{{ $like->user->avatar }}" alt=""></span>
                             @endforeach
-                            liked by:
+                            <p class="mb-0 ms-1">liked by: &nbsp;</p>
                             @foreach ($post->likes->take($limit) as $like)
                                 {{ $like->user->name }}
-                                @if (!$loop->last && !$loop->remaining)
+                                @if (!$loop->last)
                                     ,
                                 @endif
                             @endforeach
@@ -95,7 +100,7 @@
                                     </div>
                                     <div class="col-sm-10">
                                         <span>
-                                            <p>{{ $comment->user->name }}: &nbsp; {{ $comment->comment }}</p>
+                                            <p class="mb-0">{{ $comment->user->name }}: &nbsp; {{ $comment->comment }}</p>
                                         </span>
                                     </div>
                                 </div>
@@ -104,11 +109,8 @@
                         @if (Auth::check())
                             <div class="" style="margin: 0; border-radius: 0;">
                                 <div class="panel-body">
-                                    <form action="{{ url('/comment') }}" method="POST"
-                                        class="d-flex align-items-center">
-                                        {{ csrf_field() }}
-                                        <input type="hidden" name="post_id" value="{{ $post->id }}">
-                                        <input type="text" name="comment" placeholder="Enter your Comment"
+                                    <form wire:submit.prevent="addComment({{ $post->id }})" class="d-flex align-items-center">
+                                        <input type="text" wire:model.defer="newComment" placeholder="Enter your Comment"
                                             class="form-control bg-transparent text-light">
                                         <input type="submit" value="Comment" class="btn btn-primary" style="">
                                     </form>

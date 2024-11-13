@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Danaloca</title>
     {{-- bootstrap --}}
+    
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     {{-- <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet" /> --}}
@@ -413,6 +414,7 @@
     <script src="{{ asset('js/jquery.scrollTo.js') }}"></script>
     <script src="{{ asset('js/like.js') }}"></script>
     <script src="{{ asset('js/index.js') }}"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script type="text/javascript">
         // $('#example').data('jsonData').apply(this, arguments);
         var token = '{{ Session::token() }}';
