@@ -2,7 +2,7 @@
 @section('admin_content')
     <div class="panel panel-default">
         <div class="panel-heading">
-            Liệt kê danh mục sản phẩm
+            Liệt kê danh mục địa điểm
         </div>
         <div class="row w3-res-tb">
             <div class="col-sm-5 m-b-xs">

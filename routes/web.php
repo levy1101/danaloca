@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Http\Controllers\LocationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,3 +57,9 @@ Route::post('/comment', [App\Http\Controllers\User\CommentController::class, 'in
 Route::get('/location_post/{location_id}',[App\Http\Livewire\FetchLocations::class, 'fetch_locations'])->name('location_post');
 Route::get('/bookmark/{user_id}',[App\Http\Livewire\FetchBookmarks::class, 'fetch_bookmarks'])->name('bookmark');
 Route::get('/message/{user_id}', [App\Http\Controllers\User\MessageController::class, 'index'])->name('message');
+Route::get('/user', function() {
+    return view('user.add_location');
+})->name('add_location');
+
+
+Route::post('/admin/save_location', [LocationController::class, 'saveLocation']);

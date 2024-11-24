@@ -142,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- footer -->
             <div class="footer">
                 <div class="wthree-copyright">
-                    <p>© 2017 Visitors. All rights reserved | Design by <a href="http://fb.com/nad20031111">Anh Duc</a>
+                    <p>© 2017 Visitors. All rights reserved 
                     </p>
                 </div>
             </div>

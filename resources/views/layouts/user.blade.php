@@ -173,6 +173,10 @@
                         <span></span><i class="bi bi-bookmark"></i></span>
                         <h3>Bookmarks</h3>
                     </a>
+                    <a class="menu-item" id="menu-location" href="{{ route('add_location') }}">
+                        <span><i class="bi bi-plus"></i></span>
+                        <h3>Add Location</h3>
+                    </a>
                     <a class="menu-item" id="menu-analysis">
                         <span><i class="bi bi-graph-up"></i></span>
                         <h3>Analysis</h3>
