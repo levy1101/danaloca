@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Danaloca</title>
     {{-- bootstrap --}}
-    
+
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     {{-- <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet" /> --}}
@@ -173,6 +173,10 @@
                         <span></span><i class="bi bi-bookmark"></i></span>
                         <h3>Bookmarks</h3>
                     </a>
+                    <a class="menu-item" id="menu-location" href="{{ route('form_location') }}">
+                        <span><i class="bi bi-plus"></i></span>
+                        <h3>Add Location</h3>
+                    </a>
                     <a class="menu-item" id="menu-analysis">
                         <span><i class="bi bi-graph-up"></i></span>
                         <h3>Analysis</h3>
@@ -196,7 +200,7 @@
                     <h2>{{ Session('error') }}</h2>
                 </div>
             @endif
-            
+
             {{-- <div class="overlay-admin" role="alert">
                     <div class="popup">
                         <a class="close" href="#">&times;</a>
@@ -207,7 +211,7 @@
                 </div> --}}
 
 
-            
+
                 @yield('content')
             <!-------------------END OF MIDLE------------------------->
             <!--=========RIGHT============-->

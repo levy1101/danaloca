@@ -51,6 +51,7 @@ Route::post('/save_post', [App\Http\Controllers\User\PostController::class, 'sav
 Route::get('/my_profile',[App\Http\Controllers\HomeController::class, 'myProfile']);
 Route::get('/user_profile/{user_id}',[App\Http\Controllers\HomeController::class, 'user_profile'])->name('user_profile');
 Route::get('/data',[App\Http\Controllers\HomeController::class, 'data']);
+Route::get('/form_location', [App\Http\Controllers\User\LocationController::class, 'index'])->name('form_location');
 Route::post('/like', [App\Http\Controllers\User\LikeController::class, 'index'])->name('like');
 Route::post('/comment', [App\Http\Controllers\User\CommentController::class, 'index'])->name('comment');
 Route::get('/location_post/{location_id}',[App\Http\Livewire\FetchLocations::class, 'fetch_locations'])->name('location_post');
