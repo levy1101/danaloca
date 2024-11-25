@@ -1,5 +1,6 @@
 <div class="create-modal">
-    <form wire:submit.prevent="submitPost" class="create-post" enctype="multipart/form-data">
+    <form class="create-post" role="form" action="{{ URL::to('/save_post') }}" method="POST"
+        enctype="multipart/form-data" class="card">
         @csrf
         <div class="infor">
             <div class="profile-photo">
@@ -7,19 +8,20 @@
             </div>
             <h3>{{ Auth::user()->name }}</h3>
         </div>
-        
-        <textarea wire:model="post_content" placeholder="What's on your mind, {{ Auth::user()->name }}?" rows="10" style="resize:none"></textarea>
+
+        <textarea name="post_content" type="text" placeholder="What's on your mind, {{ Auth::user()->name }}?"
+            id="create-post" rows="10" style="resize:none"></textarea>
         <div class="row">
             <div class="add-to-post col-6">
                 <label class="m-0 d-flex">
                     <span class="fas fa-images align-self-center" id="upload_img">
-                        <div id="element" tabindex="-1"></div>
-                        <input type="file" wire:model="post_image" class="form-control">
+                        <div id="element" tabindex="-1"></div><input type="file" name="post_image"
+                            class="form-control">
                     </span>
                 </label>
                 <div class="m-0 d-flex">
-                    <select wire:model="location" class="form-control align-self-center">
-                        @foreach ($locations as $loc)
+                    <select name="location" class="form-control align-self-center">
+                        @foreach ($locations as $key => $loc)
                             @if ($loc->location_status == '1')
                                 <option value="{{ $loc->id }}">{{ $loc->location_name }}</option>
                             @endif
